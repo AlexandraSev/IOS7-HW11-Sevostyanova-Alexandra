@@ -8,6 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // MARK: - Background picture
+    private lazy var imageView: UIImageView = {
+        let image = UIImage(named: "background picture")
+        let imageView = UIImageView(image: image)
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
