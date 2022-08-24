@@ -28,6 +28,31 @@ class ViewController: UIViewController {
         return label
     }()
     
+    private lazy var textFieldLogin: UITextField = {
+        let textField = UITextField()
+        textField.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        textField.textColor = .systemGray
+        textField.textAlignment = .center
+        textField.placeholder = "Your email"
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
+        textField.returnKeyType = .next
+        textField.keyboardType = .emailAddress
+        return textField
+    }()
+    
+    private lazy var textFieldPassword: UITextField = {
+        let textField = UITextField()
+        textField.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        textField.textColor = .systemGray
+        textField.textAlignment = .center
+        textField.placeholder = "Your password"
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
+        textField.returnKeyType = .continue
+        textField.isSecureTextEntry = true
+        return textField
+    }()
     
  //MARK: - Lifestyle
     override func viewDidLoad() {
@@ -37,6 +62,8 @@ class ViewController: UIViewController {
         setupLayout()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints =  false
+        textFieldLogin.translatesAutoresizingMaskIntoConstraints = false
+        textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
     }
     
 
@@ -44,17 +71,31 @@ class ViewController: UIViewController {
     private func setupHierarchy() {
         view.addSubview(imageView)
         view.addSubview(label)
+        view.addSubview(textFieldLogin)
+        view.addSubview(textFieldPassword)
     }
 
     private func setupLayout() {
-        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        imageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 120).isActive = true
-        imageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -80).isActive = true
-        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 120),
+            imageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -80),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
         
-        label.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 30).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 30),
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        
+        textFieldLogin.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 95),
+        textFieldLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        textFieldLogin.widthAnchor.constraint(equalToConstant: 200),
+        
+        
+        textFieldPassword.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 135),
+            textFieldPassword.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textFieldPassword.widthAnchor.constraint(equalToConstant: 200)
+        
+     ])
     }
     
     
