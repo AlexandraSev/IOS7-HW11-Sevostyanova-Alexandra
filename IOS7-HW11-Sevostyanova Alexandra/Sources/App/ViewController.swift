@@ -101,6 +101,35 @@ class ViewController: UIViewController {
         return button
     }()
     
+    // MARK: - Label "OR Connect with"
+    private lazy var labelConnect: UILabel = {
+        let label = UILabel()
+        label.text = "or connect with"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        label.textColor = .systemGray
+        
+        return label
+    }()
+    // MARK: - Lines
+    private lazy var lineOne: UIView = {
+        
+        let line = UIView()
+        line.backgroundColor = .systemGray
+        line.layer.cornerRadius = 3
+        line.alpha = 0.5
+        return line
+    }()
+    
+    private lazy var lineTwo: UIView = {
+        
+        let line = UIView()
+        line.backgroundColor = .systemGray
+        line.layer.cornerRadius = 3
+        line.alpha = 0.5
+        return line
+    }()
+    
  //MARK: - Lifestyle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +142,9 @@ class ViewController: UIViewController {
         textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
         buttonForgot.translatesAutoresizingMaskIntoConstraints = false
+        labelConnect.translatesAutoresizingMaskIntoConstraints = false
+        lineOne.translatesAutoresizingMaskIntoConstraints = false
+        lineTwo.translatesAutoresizingMaskIntoConstraints = false
     }
     
    
@@ -124,6 +156,9 @@ class ViewController: UIViewController {
         view.addSubview(textFieldPassword)
         view.addSubview(buttonLogin)
         view.addSubview(buttonForgot)
+        view.addSubview(labelConnect)
+        view.addSubview(lineOne)
+        view.addSubview(lineTwo)
     }
 
     private func setupLayout() {
@@ -160,7 +195,24 @@ class ViewController: UIViewController {
             buttonForgot.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             buttonForgot.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 380),
             buttonForgot.heightAnchor.constraint(equalToConstant: 38),
-            buttonForgot.widthAnchor.constraint(equalToConstant: 250)
+            buttonForgot.widthAnchor.constraint(equalToConstant: 250),
+            
+            labelConnect.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            labelConnect.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 480),
+            
+            lineOne.centerXAnchor.constraint(equalTo: labelConnect.centerXAnchor, constant: -90),
+            lineOne.centerYAnchor.constraint(equalTo: labelConnect.centerYAnchor, constant: 1.5),
+            lineOne.heightAnchor.constraint(equalToConstant: 2),
+            lineOne.widthAnchor.constraint(equalToConstant: 70),
+            
+            lineTwo.centerXAnchor.constraint(equalTo: labelConnect.centerXAnchor, constant: 90),
+            lineTwo.centerYAnchor.constraint(equalTo: labelConnect.centerYAnchor, constant: 1.5),
+            lineTwo.heightAnchor.constraint(equalToConstant: 2),
+            lineTwo.widthAnchor.constraint(equalToConstant: 70)
+            
+            
+            
+            
      ])
     }
     
