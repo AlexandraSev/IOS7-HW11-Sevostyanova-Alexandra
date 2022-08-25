@@ -32,9 +32,9 @@ class ViewController: UIViewController {
     // MARK: - TextField Login and Password
     private lazy var textFieldLogin: UITextField = {
         let textField = UITextField()
-        textField.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        textField.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         textField.textColor = .systemGray
-        textField.textAlignment = .center
+        textField.textAlignment = .left
         textField.placeholder = "Your email"
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 20
@@ -51,9 +51,9 @@ class ViewController: UIViewController {
     
     private lazy var textFieldPassword: UITextField = {
         let textField = UITextField()
-        textField.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        textField.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         textField.textColor = .systemGray
-        textField.textAlignment = .center
+        textField.textAlignment = .left
         textField.placeholder = "Your password"
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 20
@@ -233,9 +233,9 @@ class ViewController: UIViewController {
 
 extension UITextField {
  func setLeftIcon(_ image: UIImage) {
-     let iconView = UIImageView(frame: CGRect(x: 10, y: 5, width: 20, height: 20))
+     let iconView = UIImageView(frame: CGRect(x: 200, y: 3, width: 25, height: 25))
      iconView.image = image
-     let iconContrainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 30, height: 30))
+     let iconContrainerView: UIView = UIView(frame: CGRect(x: 10, y: 0, width: 30, height: 30))
      iconContrainerView.addSubview(iconView)
    leftView = iconContrainerView
    leftViewMode = .always
