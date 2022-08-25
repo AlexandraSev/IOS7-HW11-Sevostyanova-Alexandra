@@ -41,10 +41,9 @@ class ViewController: UIViewController {
         textField.returnKeyType = .next
         textField.keyboardType = .emailAddress
         textField.layer.shadowColor = UIColor.black.cgColor
-        textField.layer.shadowOffset = .zero
-        textField.layer.shadowRadius = 20
+        textField.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         textField.layer.shadowOpacity = 0.3
-        textField.layer.shouldRasterize = true
+        textField.layer.masksToBounds = false
         textField.layer.rasterizationScale = UIScreen.main.scale
         textField.setLeftIcon(UIImage(named: "login")!)
         return textField
@@ -58,11 +57,11 @@ class ViewController: UIViewController {
         textField.placeholder = "Your password"
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 20
+        textField.layer.shadowRadius = 5
         textField.layer.shadowColor = UIColor.black.cgColor
-        textField.layer.shadowOffset = .zero
-        textField.layer.shadowRadius = 20
+        textField.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         textField.layer.shadowOpacity = 0.3
-        textField.layer.shouldRasterize = true
+        textField.layer.masksToBounds = false
         textField.layer.rasterizationScale = UIScreen.main.scale
         textField.returnKeyType = .continue
         textField.isSecureTextEntry = true
@@ -76,10 +75,28 @@ class ViewController: UIViewController {
     private lazy var buttonLogin: UIButton = {
         let button = UIButton()
         button.setTitle("Login", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         button.clipsToBounds = true
         button.layer.cornerRadius = 20
         button.backgroundColor = .systemPurple
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(ourButtonPressed), for: .touchUpInside)
+        button.layer.shadowRadius = 5
+            button.layer.shadowColor = UIColor.black.cgColor
+            button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        button.layer.shadowOpacity = 0.3
+            button.layer.masksToBounds = false
+        button.layer.rasterizationScale = UIScreen.main.scale
+        return button
+    }()
+    
+    // MARK: - Button Forgot password
+    private lazy var buttonForgot: UIButton = {
+        let button = UIButton()
+        button.setTitle("Forgot your password?", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        button.clipsToBounds = false
+        button.setTitleColor(.systemPurple, for: .normal)
         button.addTarget(self, action: #selector(ourButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -95,6 +112,7 @@ class ViewController: UIViewController {
         textFieldLogin.translatesAutoresizingMaskIntoConstraints = false
         textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
+        buttonForgot.translatesAutoresizingMaskIntoConstraints = false
     }
     
    
@@ -105,6 +123,7 @@ class ViewController: UIViewController {
         view.addSubview(textFieldLogin)
         view.addSubview(textFieldPassword)
         view.addSubview(buttonLogin)
+        view.addSubview(buttonForgot)
     }
 
     private func setupLayout() {
@@ -130,13 +149,18 @@ class ViewController: UIViewController {
         textFieldPassword.widthAnchor.constraint(equalToConstant: 250),
             textFieldPassword.heightAnchor.constraint(equalToConstant: 38),
         
-          // buttonLogin.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: -49)
+          
        buttonLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonLogin.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             buttonLogin.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 340),
     buttonLogin.heightAnchor.constraint(equalToConstant: 38),
-    buttonLogin.widthAnchor.constraint(equalToConstant: 250)
+    buttonLogin.widthAnchor.constraint(equalToConstant: 250),
             
+            buttonForgot.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonForgot.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            buttonForgot.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 380),
+            buttonForgot.heightAnchor.constraint(equalToConstant: 38),
+            buttonForgot.widthAnchor.constraint(equalToConstant: 250)
      ])
     }
     
