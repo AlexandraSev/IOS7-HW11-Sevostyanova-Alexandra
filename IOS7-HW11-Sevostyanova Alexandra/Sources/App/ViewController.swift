@@ -130,6 +130,53 @@ class ViewController: UIViewController {
         return line
     }()
     
+    // MARK: - Buttons Facebook and Twitter
+    private lazy var buttonFacebook: UIButton = {
+        let button = UIButton()
+        button.setTitle("Facebook", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 17
+        button.backgroundColor = .systemBlue
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(ourButtonPressed), for: .touchUpInside)
+        button.layer.shadowRadius = 5
+            button.layer.shadowColor = UIColor.black.cgColor
+            button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        button.layer.shadowOpacity = 0.3
+            button.layer.masksToBounds = false
+        button.layer.rasterizationScale = UIScreen.main.scale
+        return button
+    }()
+    
+    private lazy var buttonTwitter: UIButton = {
+        let button = UIButton()
+        button.setTitle("Twitter", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 17
+        button.backgroundColor = .blue
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(ourButtonPressed), for: .touchUpInside)
+        button.layer.shadowRadius = 5
+            button.layer.shadowColor = UIColor.black.cgColor
+            button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        button.layer.shadowOpacity = 0.3
+            button.layer.masksToBounds = false
+        button.layer.rasterizationScale = UIScreen.main.scale
+        return button
+    }()
+    
+    // MARK: - Label "Don't have account?"
+    private lazy var labelDontHaveAcc: UILabel = {
+        let label = UILabel()
+        label.text = "Don't have account?"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        label.textColor = .systemGray
+        
+        return label
+    }()
  //MARK: - Lifestyle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,6 +192,9 @@ class ViewController: UIViewController {
         labelConnect.translatesAutoresizingMaskIntoConstraints = false
         lineOne.translatesAutoresizingMaskIntoConstraints = false
         lineTwo.translatesAutoresizingMaskIntoConstraints = false
+        buttonTwitter.translatesAutoresizingMaskIntoConstraints = false
+        buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
+        labelDontHaveAcc.translatesAutoresizingMaskIntoConstraints = false
     }
     
    
@@ -159,6 +209,9 @@ class ViewController: UIViewController {
         view.addSubview(labelConnect)
         view.addSubview(lineOne)
         view.addSubview(lineTwo)
+        view.addSubview(buttonTwitter)
+        view.addSubview(buttonFacebook)
+        view.addSubview(labelDontHaveAcc)
     }
 
     private func setupLayout() {
@@ -208,7 +261,22 @@ class ViewController: UIViewController {
             lineTwo.centerXAnchor.constraint(equalTo: labelConnect.centerXAnchor, constant: 90),
             lineTwo.centerYAnchor.constraint(equalTo: labelConnect.centerYAnchor, constant: 1.5),
             lineTwo.heightAnchor.constraint(equalToConstant: 2),
-            lineTwo.widthAnchor.constraint(equalToConstant: 70)
+            lineTwo.widthAnchor.constraint(equalToConstant: 70),
+            
+            buttonFacebook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80),
+                 buttonFacebook.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 230),
+                 
+         buttonFacebook.heightAnchor.constraint(equalToConstant: 33),
+         buttonFacebook.widthAnchor.constraint(equalToConstant: 150),
+            
+            buttonTwitter.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80),
+                 buttonTwitter.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 230),
+              
+         buttonTwitter.heightAnchor.constraint(equalToConstant: 33),
+         buttonTwitter.widthAnchor.constraint(equalToConstant: 150),
+            
+            labelDontHaveAcc.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40),
+            labelDontHaveAcc.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 580),
             
             
             
@@ -241,4 +309,5 @@ extension UITextField {
    leftViewMode = .always
 }
 }
+
 
