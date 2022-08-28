@@ -177,6 +177,20 @@ class ViewController: UIViewController {
         
         return label
     }()
+    
+    // MARK: - Button Sign up
+    private lazy var buttonSignUp: UIButton = {
+        let button = UIButton()
+        button.setTitle("Sign up", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        button.clipsToBounds = false
+        button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.alpha = 0.6
+        button.addTarget(self, action: #selector(ourButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    
  //MARK: - Lifestyle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -195,6 +209,7 @@ class ViewController: UIViewController {
         buttonTwitter.translatesAutoresizingMaskIntoConstraints = false
         buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
         labelDontHaveAcc.translatesAutoresizingMaskIntoConstraints = false
+        buttonSignUp.translatesAutoresizingMaskIntoConstraints = false
     }
     
    
@@ -212,6 +227,7 @@ class ViewController: UIViewController {
         view.addSubview(buttonTwitter)
         view.addSubview(buttonFacebook)
         view.addSubview(labelDontHaveAcc)
+        view.addSubview(buttonSignUp)
     }
 
     private func setupLayout() {
@@ -239,14 +255,13 @@ class ViewController: UIViewController {
         
           
        buttonLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonLogin.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            buttonLogin.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 340),
+            buttonLogin.centerYAnchor.constraint(equalTo: textFieldPassword.centerYAnchor, constant: 70),
+            
     buttonLogin.heightAnchor.constraint(equalToConstant: 38),
     buttonLogin.widthAnchor.constraint(equalToConstant: 250),
             
             buttonForgot.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonForgot.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            buttonForgot.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 380),
+            buttonForgot.centerYAnchor.constraint(equalTo: buttonLogin.centerYAnchor, constant: 34),
             buttonForgot.heightAnchor.constraint(equalToConstant: 38),
             buttonForgot.widthAnchor.constraint(equalToConstant: 250),
             
@@ -277,6 +292,12 @@ class ViewController: UIViewController {
             
             labelDontHaveAcc.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40),
             labelDontHaveAcc.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 580),
+            
+            buttonSignUp.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 70),
+            buttonSignUp.centerYAnchor.constraint(equalTo: labelDontHaveAcc.centerYAnchor)
+           
+            
+          
             
             
             
