@@ -67,10 +67,8 @@ class ViewController: UIViewController {
         textField.isSecureTextEntry = true
         textField.setLeftIcon(UIImage(named: "lock")!)
         return textField
-        
-        
     }()
-   
+    
     // MARK: - Button Login
     private lazy var buttonLogin: UIButton = {
         let button = UIButton()
@@ -82,10 +80,10 @@ class ViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(ourButtonPressed), for: .touchUpInside)
         button.layer.shadowRadius = 5
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         button.layer.shadowOpacity = 0.3
-            button.layer.masksToBounds = false
+        button.layer.masksToBounds = false
         button.layer.rasterizationScale = UIScreen.main.scale
         return button
     }()
@@ -108,12 +106,11 @@ class ViewController: UIViewController {
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         label.textColor = .systemGray
-        
         return label
     }()
+    
     // MARK: - Lines
     private lazy var lineOne: UIView = {
-        
         let line = UIView()
         line.backgroundColor = .systemGray
         line.layer.cornerRadius = 3
@@ -141,10 +138,10 @@ class ViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(ourButtonPressed), for: .touchUpInside)
         button.layer.shadowRadius = 5
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         button.layer.shadowOpacity = 0.3
-            button.layer.masksToBounds = false
+        button.layer.masksToBounds = false
         button.layer.rasterizationScale = UIScreen.main.scale
         return button
     }()
@@ -159,10 +156,10 @@ class ViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(ourButtonPressed), for: .touchUpInside)
         button.layer.shadowRadius = 5
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         button.layer.shadowOpacity = 0.3
-            button.layer.masksToBounds = false
+        button.layer.masksToBounds = false
         button.layer.rasterizationScale = UIScreen.main.scale
         return button
     }()
@@ -174,7 +171,6 @@ class ViewController: UIViewController {
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.textColor = .systemGray
-        
         return label
     }()
     
@@ -191,7 +187,7 @@ class ViewController: UIViewController {
     }()
     
     
- //MARK: - Lifestyle
+    //MARK: - Lifestyle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -212,8 +208,7 @@ class ViewController: UIViewController {
         buttonSignUp.translatesAutoresizingMaskIntoConstraints = false
     }
     
-   
- // MARK: - Setup
+    // MARK: - Setup
     private func setupHierarchy() {
         view.addSubview(imageView)
         view.addSubview(label)
@@ -229,7 +224,7 @@ class ViewController: UIViewController {
         view.addSubview(labelDontHaveAcc)
         view.addSubview(buttonSignUp)
     }
-
+    
     private func setupLayout() {
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -237,28 +232,25 @@ class ViewController: UIViewController {
             imageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 120),
             imageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -80),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
-        
-        
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        label.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 20),
-        
-        textFieldLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        textFieldLogin.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 85),
-        textFieldLogin.widthAnchor.constraint(equalToConstant: 250),
+            
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 20),
+            
+            textFieldLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textFieldLogin.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 85),
+            textFieldLogin.widthAnchor.constraint(equalToConstant: 250),
             textFieldLogin.heightAnchor.constraint(equalToConstant: 38),
-        
-        
-        textFieldPassword.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        textFieldPassword.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 135),
-        textFieldPassword.widthAnchor.constraint(equalToConstant: 250),
+            
+            textFieldPassword.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textFieldPassword.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 135),
+            textFieldPassword.widthAnchor.constraint(equalToConstant: 250),
             textFieldPassword.heightAnchor.constraint(equalToConstant: 38),
-        
-          
-       buttonLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            buttonLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonLogin.centerYAnchor.constraint(equalTo: textFieldPassword.centerYAnchor, constant: 70),
             
-    buttonLogin.heightAnchor.constraint(equalToConstant: 38),
-    buttonLogin.widthAnchor.constraint(equalToConstant: 250),
+            buttonLogin.heightAnchor.constraint(equalToConstant: 38),
+            buttonLogin.widthAnchor.constraint(equalToConstant: 250),
             
             buttonForgot.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonForgot.centerYAnchor.constraint(equalTo: buttonLogin.centerYAnchor, constant: 34),
@@ -279,34 +271,24 @@ class ViewController: UIViewController {
             lineTwo.widthAnchor.constraint(equalToConstant: 70),
             
             buttonFacebook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80),
-                 buttonFacebook.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 230),
-                 
-         buttonFacebook.heightAnchor.constraint(equalToConstant: 33),
-         buttonFacebook.widthAnchor.constraint(equalToConstant: 150),
+            buttonFacebook.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 230),
+            buttonFacebook.heightAnchor.constraint(equalToConstant: 33),
+            buttonFacebook.widthAnchor.constraint(equalToConstant: 150),
             
             buttonTwitter.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80),
-                 buttonTwitter.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 230),
-              
-         buttonTwitter.heightAnchor.constraint(equalToConstant: 33),
-         buttonTwitter.widthAnchor.constraint(equalToConstant: 150),
+            buttonTwitter.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 230),
+            buttonTwitter.heightAnchor.constraint(equalToConstant: 33),
+            buttonTwitter.widthAnchor.constraint(equalToConstant: 150),
             
             labelDontHaveAcc.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40),
             labelDontHaveAcc.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 580),
             
             buttonSignUp.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 70),
             buttonSignUp.centerYAnchor.constraint(equalTo: labelDontHaveAcc.centerYAnchor)
-           
-            
-          
-            
-            
-            
-            
-     ])
+        ])
     }
     
-    
-// MARK: - Actions
+    // MARK: - Actions
     func getRandomColor() -> UIColor{
         let red: CGFloat = CGFloat(drand48())
         let green: CGFloat = CGFloat(drand48())
@@ -314,21 +296,20 @@ class ViewController: UIViewController {
         
         return UIColor( red: red, green: green, blue: blue, alpha: 1.0)
     }
-   @objc private func ourButtonPressed() {
-       label.textColor = getRandomColor()
+    @objc private func ourButtonPressed() {
+        label.textColor = getRandomColor()
     }
-
 }
 
 extension UITextField {
- func setLeftIcon(_ image: UIImage) {
-     let iconView = UIImageView(frame: CGRect(x: 200, y: 3, width: 25, height: 25))
-     iconView.image = image
-     let iconContrainerView: UIView = UIView(frame: CGRect(x: 10, y: 0, width: 30, height: 30))
-     iconContrainerView.addSubview(iconView)
-   leftView = iconContrainerView
-   leftViewMode = .always
-}
+    func setLeftIcon(_ image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 200, y: 3, width: 25, height: 25))
+        iconView.image = image
+        let iconContrainerView: UIView = UIView(frame: CGRect(x: 10, y: 0, width: 30, height: 30))
+        iconContrainerView.addSubview(iconView)
+        leftView = iconContrainerView
+        leftViewMode = .always
+    }
 }
 
 
